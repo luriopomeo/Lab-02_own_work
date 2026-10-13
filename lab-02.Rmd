@@ -89,7 +89,12 @@ plastic_data_all |>
 
 ```{r Ex3, message = FALSE}
 # Write your code here to answer exercise 3
-
+plastic_data_all |> 
+  mutate( pct_plastic_mismanaged_ocean = 
+            (mismanaged_plastic_ocean/mismanaged_plastic) * 100 ) |> 
+  drop_na() |> 
+  group_by( region ) |> 
+  summarise( median_pct_region = median(pct_plastic_mismanaged_ocean) )
 
 
 ```
@@ -99,7 +104,5 @@ plastic_data_all |>
 
 ```{r Ex4, message = FALSE}
 # Write your code here to answer exercise 4
-
-
-
+print("goon")
 ```
